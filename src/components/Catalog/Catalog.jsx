@@ -16,7 +16,7 @@ function Catalog() {
   }, []);
 
   return (
-    <div>
+    <div className="catalog">
       {movies.length > 0 ? (
         <div className="container">
           <div className="grid">
@@ -26,7 +26,7 @@ function Catalog() {
           </div>
         </div>
       ) : (
-        <h2>Sorry !! No Movies Found</h2>
+        <h2>Loading...</h2>
       )}
     </div>
   );

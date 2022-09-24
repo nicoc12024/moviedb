@@ -60,7 +60,7 @@ function Movie({ title, release_date, vote_average, poster_path, overview }) {
         </button>
       </div>
       <img src={API_IMG + poster_path} alt="movie cover" />
-      {openModal == true && <Modal {...movie} handleClick={handleOpenModal} />}
+      {openModal === true && <Modal {...movie} handleClick={handleOpenModal} />}
     </div>
   );
 }
