@@ -10,7 +10,8 @@ import Modal from "../../Modal/Modal";
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
 
 function Movie({ movie: movieInfo }) {
-  const { addWatchList, removeWatchList } = useContext(WatchListContext);
+  const { addWatchList, removeWatchList, addWishList, removeWishList } =
+    useContext(WatchListContext);
 
   const [openModal, setOpenModal] = useState(false);
   const [movie, setMovie] = useState(movieInfo);
@@ -29,7 +30,14 @@ function Movie({ movie: movieInfo }) {
     }
   };
 
-  const handleFavorite = () => setFavorite(!favorite);
+  const handleFavorite = () => {
+    setFavorite(!favorite);
+    if (favorite) {
+      removeWishList(movie.id);
+    } else {
+      addWishList(movie);
+    }
+  };
 
   const { title, release_date, vote_average, poster_path, overview } = movie;
 

@@ -16,18 +16,12 @@ function LeftBar() {
             <span>Home</span>
           </Link>
         </li>
-        {/* <li>
-          <a href="/" rel="noreferrer">
-            <AiOutlineSearch />
-            <span>Search</span>
-          </a>
-        </li> */}
-        {/* <li>
-          <a href="/">
+        <li>
+          <Link to="/favorites">
             <AiOutlineHeart />
             <span>Favorites</span>
-          </a>
-        </li> */}
+          </Link>
+        </li>
         <li>
           <Link to="/wishlist">
             <BsCameraReels />

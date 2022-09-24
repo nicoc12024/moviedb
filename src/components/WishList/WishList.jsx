@@ -1,16 +1,23 @@
 import "./wishList.css";
 import { useContext } from "react";
 import { WatchListContext } from "./../../context/index";
+import WishListItem from "./WishListItem/WishListItem";
 
 function WishList() {
-  const { watchList, addWatchList, removeWatchList } = useContext(WatchListContext);
-  const { title, overview } = watchList[0];
+  const { watchList } = useContext(WatchListContext);
   return (
     <div className="wishList">
-      <div className="item">
-        <p>{title}</p>
-        <p>{overview}</p>
-      </div>
+      {watchList.length > 1 ? (
+        <div className="container">
+          <div className="grid">
+            {watchList.map((movie) => (
+              <WishListItem key={movie.id} item={movie} />
+            ))}
+          </div>
+        </div>
+      ) : (
+        <h2>No movies in here...</h2>
+      )}
     </div>
   );
 }
