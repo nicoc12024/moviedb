@@ -26,7 +26,8 @@
 
 .catalog .searchContainer input {
   margin-right: 0.3rem;
-  padding: 0.6rem 1rem;
+  padding: 0.6rem;
+  width: 8rem;
   outline: none;
   border-radius: 5px;
   border: none;
@@ -41,4 +42,10 @@
   border-radius: 5px;
   color: white;
   background-color: #5e6875;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.catalog .searchContainer button:hover {
+  background-color: #a0a9b5;
 }
