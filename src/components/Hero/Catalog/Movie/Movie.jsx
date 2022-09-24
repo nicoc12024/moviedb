@@ -4,7 +4,7 @@ import { AiFillStar } from "react-icons/ai";
 import { BiCameraMovie } from "react-icons/bi";
 import { HiOutlineHeart } from "react-icons/hi";
 import { useState } from "react";
-import Modal from "../../Modal/Modal";
+import Modal from "../../../Modal/Modal";
 
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
 

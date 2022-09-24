@@ -19,8 +19,6 @@ function Catalog() {
 
   const searchMovie = async (e) => {
     e.preventDefault();
-    console.log("searching");
-
     try {
       const url = `https://api.themoviedb.org/3/search/movie?api_key=9ab709bb80f81e49d6b700d28370abd0&query=${query}`;
       const res = await fetch(url);

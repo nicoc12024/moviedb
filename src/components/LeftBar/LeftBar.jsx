@@ -4,16 +4,17 @@ import { AiOutlineHome } from "react-icons/ai";
 import { AiOutlineSearch } from "react-icons/ai";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsCameraReels } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 function LeftBar() {
   return (
     <div className="leftBar">
       <ul className="topMenu">
         <li>
-          <a href="/" rel="noreferrer">
+          <Link to="/">
             <AiOutlineHome />
             <span>Home</span>
-          </a>
+          </Link>
         </li>
         {/* <li>
           <a href="/" rel="noreferrer">
@@ -21,17 +22,17 @@ function LeftBar() {
             <span>Search</span>
           </a>
         </li> */}
-        <li>
-          <a href="/" rel="noreferrer">
+        {/* <li>
+          <a href="/">
             <AiOutlineHeart />
             <span>Favorites</span>
           </a>
-        </li>
+        </li> */}
         <li>
-          <a href="/" rel="noreferrer">
+          <Link to="/wishlist">
             <BsCameraReels />
             <span>Watchlist</span>
-          </a>
+          </Link>
         </li>
       </ul>
       <div className="bottomMenu">
