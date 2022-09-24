@@ -37,13 +37,16 @@
 }
 
 .movie .data div p {
+  font-size: 0.9rem;
   display: flex;
   align-items: center;
-  margin-right: 1rem;
+}
+.movie .data div p:first-child {
+  margin-right: 0.3rem;
 }
 
 .movie .data div svg {
-  margin-right: 0.4rem;
+  margin-right: 0.3rem;
 }
 
 .movie .data .btn {
