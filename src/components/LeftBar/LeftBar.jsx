@@ -15,12 +15,12 @@ function LeftBar() {
             <span>Home</span>
           </a>
         </li>
-        <li>
+        {/* <li>
           <a href="/" rel="noreferrer">
             <AiOutlineSearch />
             <span>Search</span>
           </a>
-        </li>
+        </li> */}
         <li>
           <a href="/" rel="noreferrer">
             <AiOutlineHeart />

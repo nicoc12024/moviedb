@@ -48,7 +48,7 @@ function Movie({ title, release_date, vote_average, poster_path, overview }) {
         <div>
           <p>
             <BsCalendar3 />
-            {release_date.slice(0, 4)}
+            {release_date}
           </p>
           <p>
             <AiFillStar className="star" />

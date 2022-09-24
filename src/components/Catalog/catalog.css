@@ -1,7 +1,6 @@
 .container {
   width: 100%;
   margin: 0 auto;
-  padding-top: 4rem;
 }
 
 .catalog {
@@ -14,4 +13,31 @@
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.catalog .searchContainer {
+  background-color: #343c48;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.catalog .searchContainer input {
+  margin-right: 0.3rem;
+  padding: 0.6rem 1rem;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+}
+.catalog .searchContainer input:focus {
+  outline: 2px solid #1ee4a8;
+}
+
+.catalog .searchContainer button {
+  border: none;
+  padding: 0.6rem;
+  border-radius: 5px;
+  color: white;
+  background-color: #5e6875;
 }

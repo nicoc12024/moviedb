@@ -1,0 +1,26 @@
+.searchContainer {
+  background-color: #343c48;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.searchContainer input {
+  margin-right: 0.3rem;
+  padding: 0.6rem 1rem;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+}
+.searchContainer input:focus {
+  outline: 2px solid #1ee4a8;
+}
+
+.searchContainer button {
+  border: none;
+  padding: 0.6rem;
+  border-radius: 5px;
+  color: white;
+  background-color: #5e6875;
+}
