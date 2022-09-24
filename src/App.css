@@ -45,8 +45,12 @@ svg {
   font-size: 1.2rem;
 }
 
-
-
 .star {
   color: gold;
+}
+
+.emptyComponent {
+  text-align: center;
+  color: white;
+  padding: 2rem;
 }

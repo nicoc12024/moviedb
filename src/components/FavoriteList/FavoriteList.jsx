@@ -16,7 +16,7 @@ function FavoriteList() {
           </div>
         </div>
       ) : (
-        <h2>No movies in here...</h2>
+        <h2 className="emptyComponent">No movies in here...</h2>
       )}
     </div>
   );
