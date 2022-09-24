@@ -1,0 +1,14 @@
+.container {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #343c48;
+  padding-top: 4rem;
+}
+
+.grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}

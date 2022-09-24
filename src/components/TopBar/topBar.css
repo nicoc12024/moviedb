@@ -1,0 +1,34 @@
+.topBar {
+  background-color: #2b323d;
+  border-bottom: #1ee4a8 3px solid;
+  color: white;
+  padding: 0.5rem;
+  position: relative;
+}
+
+.topBarContainer {
+  max-width: 1400px;
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topBar .githubDiv {
+  width: 80px;
+}
+
+.topBar .githubDiv .githubLogo {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.topBar .githubDiv .githubLogo:hover {
+  color: #1ee4a8;
+}
+
+.topBar svg {
+  width: 130px;
+}

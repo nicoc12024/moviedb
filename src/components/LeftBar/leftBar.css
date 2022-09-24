@@ -1,0 +1,84 @@
+.leftBar {
+  background-color: #404a58;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 4rem;
+  padding-top: 4.5rem;
+  transition: width 0.2s ease-in-out;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.leftBar:hover {
+  width: 15rem;
+}
+
+.leftBar .topMenu {
+  padding-top: 1rem;
+}
+
+.leftBar .topMenu li {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.leftBar .topMenu li:hover {
+  background-color: #343c48;
+  border-left-color: #1ee4a8;
+}
+
+.leftBar .topMenu li:hover a > * {
+  color: #1ee4a8;
+}
+
+.leftBar .topMenu li a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem 0;
+  margin: 0 1.2rem;
+}
+
+.leftBar .topMenu li a span {
+  font-size: 0.95rem;
+  margin-left: 2.6rem;
+}
+
+.leftBar .topMenu li a svg {
+  position: absolute;
+}
+
+.bottomMenu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.bottomMenu svg {
+  min-width: fit-content;
+  font-size: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
+.bottomMenu p {
+  font-size: 0.8rem;
+  white-space: nowrap;
+  margin-left: 1.2rem;
+}
+
+.bottomMenu p a {
+  color: #1ee4a8;
+}
+
+.bottomMenu p a:hover {
+  color: #eb2a92;
+}

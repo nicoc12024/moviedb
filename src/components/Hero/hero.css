@@ -1,0 +1,54 @@
+.hero {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-blend-mode: luminosity;
+  height: 320px;
+  z-index: -1;
+  color: white;
+  display: flex;
+  background-color: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+  cursor: pointer;
+}
+
+.hero .heroInfo {
+  display: flex;
+  row-gap: 0.4rem;
+  flex-direction: column;
+  align-items: left;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 2rem;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.hero .heroInfo .data {
+  display: flex;
+}
+
+.hero .heroInfo .data p {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.hero .heroInfo .data p svg {
+  margin-right: 0.4rem;
+}
+
+.hero .description {
+  width: 100%;
+  max-width: 80%;
+  word-break: break-word;
+  overflow: hidden;
+  max-width: 80ch;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+@media (min-width: 700px) {
+  .hero {
+    height: 500px;
+  }
+}
