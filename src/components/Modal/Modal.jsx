@@ -8,20 +8,24 @@ function Modal({
   release_date,
   vote_average,
   poster_path,
+  image,
   overview,
   handleClick,
 }) {
   return (
     <div className="modal">
       <div className="img">
-        <img src={API_IMG + poster_path} alt="movie cover" />
+        <img
+          src={API_IMG && poster_path ? API_IMG + poster_path : image}
+          alt="movie cover"
+        />
       </div>
       <div className="info">
         <h2>{title}</h2>
         <div className="icons">
           <p>
             <BsCalendar3 />
-            {release_date.slice(0, 4)}
+            {release_date}
           </p>
           <p>
             <AiFillStar className="star" />

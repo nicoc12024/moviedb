@@ -39,7 +39,7 @@ function Movie({ movie: movieInfo }) {
     }
   };
 
-  const { title, release_date, vote_average, poster_path, overview } = movie;
+  const { title, release_date, vote_average, poster_path } = movie;
 
   return (
     <div className="movie">

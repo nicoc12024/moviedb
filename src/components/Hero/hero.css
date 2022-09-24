@@ -5,7 +5,7 @@
   background-blend-mode: luminosity;
   z-index: -1;
   color: white;
-  height: 500px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   background-color: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
@@ -47,10 +47,4 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-}
-
-@media (min-width: 700px) {
-  .hero {
-    height: 300px;
-  }
 }
