@@ -49,7 +49,7 @@ function Catalog() {
         <div className="container">
           <div className="grid">
             {movies.map((movie) => (
-              <Movie key={movie.id} {...movie} />
+              <Movie key={movie.id} movie={movie} />
             ))}
           </div>
         </div>

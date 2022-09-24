@@ -3,44 +3,46 @@ import { BsCalendar3 } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
 import { BiCameraMovie } from "react-icons/bi";
 import { HiOutlineHeart } from "react-icons/hi";
-import { useState } from "react";
-import Modal from "../../../Modal/Modal";
+import { useState, useContext } from "react";
+import { WatchListContext } from "./../../../context/index";
+import Modal from "../../Modal/Modal";
 
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
 
-function Movie({ title, release_date, vote_average, poster_path, overview }) {
+function Movie({ movie: movieInfo }) {
+  const { addWatchList, removeWatchList } = useContext(WatchListContext);
+
   const [openModal, setOpenModal] = useState(false);
-  const [movie, setSetMovie] = useState({
-    title,
-    release_date,
-    vote_average,
-    poster_path,
-    overview,
-  });
+  const [movie, setMovie] = useState(movieInfo);
 
   const [favorite, setFavorite] = useState(false);
   const [watchList, setWatchList] = useState(false);
 
-  const handleOpenModal = () => {
-    setOpenModal(!openModal);
-  };
+  const handleOpenModal = () => setOpenModal(!openModal);
+
   const handleWatchList = () => {
     setWatchList(!watchList);
+    if (watchList) {
+      removeWatchList(movie.id);
+    } else {
+      addWatchList(movie);
+    }
   };
-  const handleFavorite = () => {
-    setFavorite(!favorite);
-  };
+
+  const handleFavorite = () => setFavorite(!favorite);
+
+  const { title, release_date, vote_average, poster_path, overview } = movie;
 
   return (
     <div className="movie">
       <div className="collection">
         <button onClick={handleWatchList}>
           <BiCameraMovie />
-          {watchList === false ? <span>-</span> : <span>+</span>}
+          {watchList ? <span>-</span> : <span>+</span>}
         </button>
         <button onClick={handleFavorite}>
           <HiOutlineHeart />
-          {favorite === false ? <span>-</span> : <span>+</span>}
+          {favorite ? <span>-</span> : <span>+</span>}
         </button>
       </div>
       <div className="data">

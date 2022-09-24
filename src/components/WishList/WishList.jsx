@@ -1,6 +1,17 @@
 import "./wishList.css";
+import { useContext } from "react";
+import { WatchListContext } from "./../../context/index";
 
 function WishList() {
-  return <div className="wishList">This is the Wish List</div>;
+  const { watchList, addWatchList, removeWatchList } = useContext(WatchListContext);
+  const { title, overview } = watchList[0];
+  return (
+    <div className="wishList">
+      <div className="item">
+        <p>{title}</p>
+        <p>{overview}</p>
+      </div>
+    </div>
+  );
 }
 export default WishList;
