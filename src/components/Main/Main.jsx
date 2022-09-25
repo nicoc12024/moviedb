@@ -1,7 +1,7 @@
 import "./main.css";
 import LeftBar from "./../LeftBar/LeftBar";
 import TopBar from "./../TopBar/TopBar";
-import WishList from "./../WishList/WishList";
+import WatchList from "./../WatchList/WatchList";
 import { Routes, Route } from "react-router-dom";
 import Hero from "./../Hero/Hero";
 import Catalog from "./../Catalog/Catalog";
@@ -23,7 +23,7 @@ function Main() {
               </>
             }
           />
-          <Route path="/wishlist" element={<WishList />} />
+          <Route path="/watchList" element={<WatchList />} />
           <Route path="/favorites" element={<FavoriteList />} />
         </Routes>
       </div>

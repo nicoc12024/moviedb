@@ -23,7 +23,7 @@ function LeftBar() {
           </Link>
         </li>
         <li>
-          <Link to="/wishlist">
+          <Link to="/watchlist">
             <BsCameraReels />
             <span>Watchlist</span>
           </Link>

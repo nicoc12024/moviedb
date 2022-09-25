@@ -1,13 +1,13 @@
-import "./favoriteItem.css";
+import "./singleMovie.css";
 import { BsCalendar3 } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
 import { useState, useContext } from "react";
-import { WatchListContext } from "./../../../context/index";
-import Modal from "../../Modal/Modal";
+import { WatchListContext } from "./../../context/index";
+import Modal from "./../Modal/Modal";
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
 
-function FavoriteListItem({ item }) {
+function SingleMovie({ item }) {
   const { removeItemFromFavoriteList, removeItemFromWatchList } =
     useContext(WatchListContext);
 
@@ -56,4 +56,4 @@ function FavoriteListItem({ item }) {
     </div>
   );
 }
-export default FavoriteListItem;
+export default SingleMovie;

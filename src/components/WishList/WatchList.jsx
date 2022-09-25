@@ -1,17 +1,17 @@
-import "./favoriteList.css";
+import "./wishList.css";
 import { useContext } from "react";
 import { WatchListContext } from "../../context/index";
-import SingleMovie from "./../ReUsableComponent/SingleMovie";
+import WishListItem from "./WishListItem/WishListItem";
 
-function FavoriteList() {
-  const { favoriteList } = useContext(WatchListContext);
+function WishList() {
+  const { watchList } = useContext(WatchListContext);
   return (
     <div className="wishList">
-      {favoriteList.length >= 1 ? (
+      {watchList.length >= 1 ? (
         <div className="container">
           <div className="grid">
-            {favoriteList.map((movie) => (
-              <SingleMovie key={movie.id} item={movie} />
+            {watchList.map((movie) => (
+              <WishListItem key={movie.id} item={movie} />
             ))}
           </div>
         </div>
@@ -21,4 +21,4 @@ function FavoriteList() {
     </div>
   );
 }
-export default FavoriteList;
+export default WishList;

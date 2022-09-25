@@ -4,35 +4,35 @@ export const WatchListContext = createContext([]);
 
 export const ContextProvider = ({ children }) => {
   const [watchList, setWatchList] = useState([]);
-  const [wishList, setWishList] = useState([]);
+  const [favoriteList, setFavoriteList] = useState([]);
 
-  const addWatchList = (movie) => {
+  const addItemToWatchList = (movie) => {
     setWatchList([...watchList, movie]);
   };
-  const removeWatchList = (id) => {
+
+  const removeItemFromWatchList = (id) => {
     const newWatchList = watchList.filter((movie) => movie.id !== id);
     setWatchList(newWatchList);
   };
 
-  const addWishList = (movie) => {
-    console.log(wishList);
-    setWishList([...wishList, movie]);
+  const addItemToFavoriteList = (movie) => {
+    setFavoriteList([...favoriteList, movie]);
   };
 
-  const removeWishList = (id) => {
-    const newWatchList = wishList.filter((movie) => movie.id !== id);
-    setWishList(newWatchList);
+  const removeItemFromFavoriteList = (id) => {
+    const newWatchList = favoriteList.filter((movie) => movie.id !== id);
+    setFavoriteList(newWatchList);
   };
 
   return (
     <WatchListContext.Provider
       value={{
-        addWatchList,
-        removeWatchList,
-        addWishList,
-        removeWishList,
+        addItemToWatchList,
+        removeItemFromWatchList,
+        addItemToFavoriteList,
+        removeItemFromFavoriteList,
         watchList,
-        wishList,
+        favoriteList,
       }}
     >
       {children}

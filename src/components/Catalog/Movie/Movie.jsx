@@ -10,8 +10,12 @@ import Modal from "../../Modal/Modal";
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
 
 function Movie({ movie: movieInfo }) {
-  const { addWatchList, removeWatchList, addWishList, removeWishList } =
-    useContext(WatchListContext);
+  const {
+    addItemToWatchList,
+    removeItemFromWatchList,
+    addItemToFavoriteList,
+    removeItemFromFavoriteList,
+  } = useContext(WatchListContext);
 
   const [openModal, setOpenModal] = useState(false);
   const [movie, setMovie] = useState(movieInfo);
@@ -24,18 +28,20 @@ function Movie({ movie: movieInfo }) {
   const handleWatchList = () => {
     setWatchList(!watchList);
     if (watchList) {
-      removeWatchList(movie.id);
+      removeItemFromWatchList(movie.id);
     } else {
-      addWatchList(movie);
+      addItemToWatchList(movie);
+      movie.isItemInFavoriteList = false;
     }
   };
 
-  const handleFavorite = () => {
+  const handleFavoriteList = () => {
     setFavorite(!favorite);
     if (favorite) {
-      removeWishList(movie.id);
+      removeItemFromFavoriteList(movie.id);
     } else {
-      addWishList(movie);
+      movie.isItemInFavoriteList = true;
+      addItemToFavoriteList(movie);
     }
   };
 
@@ -48,7 +54,7 @@ function Movie({ movie: movieInfo }) {
           <BiCameraMovie />
           {watchList ? <span>-</span> : <span>+</span>}
         </button>
-        <button onClick={handleFavorite}>
+        <button onClick={handleFavoriteList}>
           <HiOutlineHeart />
           {favorite ? <span>-</span> : <span>+</span>}
         </button>
