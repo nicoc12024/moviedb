@@ -1,4 +1,6 @@
 .marginLeft {
   margin-left: 3.8rem;
   overflow-x: hidden;
+  height: 100vh;
+  background-color: #343c48;
 }

@@ -10,38 +10,52 @@ import Modal from "../../Modal/Modal";
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
 
 function Movie({ movie: movieInfo }) {
-  const {
-    addItemToWatchList,
-    removeItemFromWatchList,
-    addItemToFavoriteList,
-    removeItemFromFavoriteList,
-  } = useContext(WatchListContext);
+  const { addItemToWatchList, addItemToFavoriteList } = useContext(WatchListContext);
 
   const [openModal, setOpenModal] = useState(false);
   const [movie, setMovie] = useState(movieInfo);
 
-  const [favorite, setFavorite] = useState(false);
-  const [watchList, setWatchList] = useState(false);
+  // const [favorite, setFavorite] = useState(false);
+  // const [watchList, setWatchList] = useState(false);
+
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [isInWatchlist, setIsInWatchlist] = useState(false);
 
   const handleOpenModal = () => setOpenModal(!openModal);
 
-  const handleWatchList = () => {
-    setWatchList(!watchList);
-    if (watchList) {
-      removeItemFromWatchList(movie.id);
-    } else {
-      movie.isItemInFavoriteList = false;
-      addItemToWatchList(movie);
-    }
-  };
+  // const addToLocalStorage = (key) => {
+  //   let array = JSON.parse(localStorage.getItem(key));
+  //   array.push(movie);
+  //   // localStorage.setItem(key, JSON.stringify(array));
+  //   key === "favorites" ? addItemToFavoriteList(...array) : addItemToWatchList(...array);
+  // };
 
-  const handleFavoriteList = () => {
-    setFavorite(!favorite);
-    if (favorite) {
-      removeItemFromFavoriteList(movie.id);
+  // const removeFromLocalStorage = (key) => {
+  //   let array = JSON.parse(localStorage.getItem(key));
+  //   array = array.filter((m) => m.id !== movie.id);
+  //   // localStorage.setItem(key, JSON.stringify(array));
+  //   key === "favorites" ? addItemToFavoriteList(array) : addItemToWatchList(array);
+  // };
+
+  const handleClick = (key) => {
+    if (key === "favorites") {
+      if (isFavorite) {
+        // Maneja + or -
+        setIsFavorite(false);
+      } else {
+        // Maneja + or -
+        setIsFavorite(true);
+        movie.isfavorite = true;
+        addItemToFavoriteList(movie);
+      }
     } else {
-      movie.isItemInFavoriteList = true;
-      addItemToFavoriteList(movie);
+      if (isInWatchlist) {
+        setIsInWatchlist(false);
+      } else {
+        setIsInWatchlist(true);
+        movie.isWatchList = true;
+        addItemToWatchList(movie);
+      }
     }
   };
 
@@ -50,13 +64,13 @@ function Movie({ movie: movieInfo }) {
   return (
     <div className="movie">
       <div className="collection">
-        <button onClick={handleWatchList}>
+        <button onClick={() => handleClick("watchlist")}>
           <BiCameraMovie />
-          {watchList ? <span>-</span> : <span>+</span>}
+          {isInWatchlist ? <span>-</span> : <span>+</span>}
         </button>
-        <button onClick={handleFavoriteList}>
+        <button onClick={() => handleClick("favorites")}>
           <HiOutlineHeart />
-          {favorite ? <span>-</span> : <span>+</span>}
+          {isFavorite ? <span>-</span> : <span>+</span>}
         </button>
       </div>
       <div className="data">

@@ -16,7 +16,6 @@ function Catalog() {
         const catalogArray = data.results;
         const catalogArrayTrue = catalogArray.map((element) => ({
           ...element,
-          isFromCatalog: true,
         }));
         setMovies(catalogArrayTrue);
       });

@@ -7,31 +7,29 @@ import { WatchListContext } from "../../../context/index";
 import Modal from "../../Modal/Modal";
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
 
-function SingleMovie({ item }) {
-  const { removeItemFromFavoriteList, removeItemFromWatchList } =
-    useContext(WatchListContext);
+function SingleMovie({ item, myButon }) {
+  // const { removeItemFromFavoriteList, removeItemFromWatchList } =
+  //   useContext(WatchListContext);
 
   const [openModal, setOpenModal] = useState(false);
   const [movie, setMovie] = useState(item);
 
   const handleOpenModal = () => setOpenModal(!openModal);
 
-  const removeItemFavorite = () => {
-    removeItemFromFavoriteList(movie.id);
-  };
+  // const removeItemFavorite = () => {
+  //   removeItemFromFavoriteList(movie.id);
+  // };
 
-  const removeItemWatchList = () => {
-    removeItemFromWatchList(movie.id);
-  };
+  // const removeItemWatchList = () => {
+  //   removeItemFromWatchList(movie.id);
+  // };
 
   const { title, release_date, vote_average, poster_path } = item;
 
   return (
     <div className="movieWishList">
       <div className="collection">
-        <button
-          onClick={item.isItemInFavoriteList ? removeItemFavorite : removeItemWatchList}
-        >
+        <button onClick={() => myButon(item.id)}>
           <TiDeleteOutline />
         </button>
       </div>
