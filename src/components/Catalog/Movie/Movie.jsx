@@ -30,8 +30,8 @@ function Movie({ movie: movieInfo }) {
     if (watchList) {
       removeItemFromWatchList(movie.id);
     } else {
-      addItemToWatchList(movie);
       movie.isItemInFavoriteList = false;
+      addItemToWatchList(movie);
     }
   };
 

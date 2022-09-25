@@ -13,7 +13,12 @@ function Catalog() {
     fetch(API_URL)
       .then((res) => res.json())
       .then((data) => {
-        setMovies(data.results);
+        const catalogArray = data.results;
+        const catalogArrayTrue = catalogArray.map((element) => ({
+          ...element,
+          isFromCatalog: true,
+        }));
+        setMovies(catalogArrayTrue);
       });
   }, []);
 
