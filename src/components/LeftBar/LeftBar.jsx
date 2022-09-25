@@ -1,7 +1,6 @@
 import "./leftBar.css";
 import { DiReact } from "react-icons/di";
 import { AiOutlineHome } from "react-icons/ai";
-import { AiOutlineSearch } from "react-icons/ai";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsCameraReels } from "react-icons/bs";
 import { Link } from "react-router-dom";

@@ -1,12 +1,11 @@
-import "./favoriteList.css";
 import { useContext } from "react";
-import { WatchListContext } from "../../context/index";
-import SingleMovie from "./../ReUsableComponent/SingleMovie";
+import { WatchListContext } from "../../../context/index";
+import SingleMovie from "../ReUsableComponent/SingleMovie";
 
 function FavoriteList() {
   const { favoriteList } = useContext(WatchListContext);
   return (
-    <div className="wishList">
+    <div className="watchList">
       {favoriteList.length >= 1 ? (
         <div className="container">
           <div className="grid">

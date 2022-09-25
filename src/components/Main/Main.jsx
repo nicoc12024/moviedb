@@ -1,11 +1,11 @@
 import "./main.css";
 import LeftBar from "./../LeftBar/LeftBar";
 import TopBar from "./../TopBar/TopBar";
-import WatchList from "./../WatchList/WatchList";
+import WatchList from "../LeftBarActions/WatchList/WatchList";
 import { Routes, Route } from "react-router-dom";
 import Hero from "./../Hero/Hero";
 import Catalog from "./../Catalog/Catalog";
-import FavoriteList from "../FavoriteList/FavoriteList";
+import FavoriteList from "../LeftBarActions/FavoriteList/FavoriteList";
 
 function Main() {
   return (
@@ -23,7 +23,7 @@ function Main() {
               </>
             }
           />
-          <Route path="/watchList" element={<WatchList />} />
+          <Route path="/watchlist" element={<WatchList />} />
           <Route path="/favorites" element={<FavoriteList />} />
         </Routes>
       </div>
