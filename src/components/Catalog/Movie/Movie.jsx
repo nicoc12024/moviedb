@@ -3,7 +3,7 @@ import { BsCalendar3 } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
 import { BiCameraMovie } from "react-icons/bi";
 import { HiOutlineHeart } from "react-icons/hi";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { WatchListContext } from "./../../../context/index";
 import Modal from "../../Modal/Modal";
 

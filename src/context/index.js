@@ -3,8 +3,15 @@ import { createContext, useState, useEffect } from "react";
 export const WatchListContext = createContext([]);
 
 export const ContextProvider = ({ children }) => {
-  const [watchList, setWatchList] = useState([]);
-  const [favoriteList, setFavoriteList] = useState([]);
+  const [watchList, setWatchList] = useState(() => {
+    const localData = localStorage.getItem("watchlist");
+    return localData ? JSON.parse(localData) : [];
+  });
+
+  const [favoriteList, setFavoriteList] = useState(() => {
+    const localData = localStorage.getItem("favorites");
+    return localData ? JSON.parse(localData) : [];
+  });
 
   const isInWatchList = (id) => {
     return watchList.some((item) => item.id === id);
