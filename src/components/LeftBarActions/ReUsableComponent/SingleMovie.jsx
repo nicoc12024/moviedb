@@ -2,27 +2,15 @@ import "./singleMovie.css";
 import { BsCalendar3 } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
-import { useState, useContext } from "react";
-import { WatchListContext } from "../../../context/index";
+import { useState } from "react";
 import Modal from "../../Modal/Modal";
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
 
 function SingleMovie({ item, myButon }) {
-  // const { removeItemFromFavoriteList, removeItemFromWatchList } =
-  //   useContext(WatchListContext);
-
   const [openModal, setOpenModal] = useState(false);
   const [movie, setMovie] = useState(item);
 
   const handleOpenModal = () => setOpenModal(!openModal);
-
-  // const removeItemFavorite = () => {
-  //   removeItemFromFavoriteList(movie.id);
-  // };
-
-  // const removeItemWatchList = () => {
-  //   removeItemFromWatchList(movie.id);
-  // };
 
   const { title, release_date, vote_average, poster_path } = item;
 
