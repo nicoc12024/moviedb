@@ -39,7 +39,6 @@ function Movie({ movie: movieInfo }) {
     if (favorite) {
       removeItemFromFavoriteList(movie.id);
     } else {
-      movie.isItemInFavoriteList = true;
       addItemToFavoriteList(movie);
     }
   };

@@ -6,12 +6,16 @@ export const ContextProvider = ({ children }) => {
   const [watchList, setWatchList] = useState([]);
   const [favoriteList, setFavoriteList] = useState([]);
 
+  const isInWatchList = (id) => {
+    return watchList.some((item) => item.id === id);
+  };
+
   const isInFavorite = (id) => {
     return favoriteList.some((item) => item.id === id);
   };
 
   const addItemToWatchList = (movie) => {
-    if (!isInFavorite(movie.id)) {
+    if (!isInWatchList(movie.id)) {
       setWatchList([...watchList, movie]);
     } else {
       const newWatchList = watchList.filter((item) => item.id !== movie.id);
