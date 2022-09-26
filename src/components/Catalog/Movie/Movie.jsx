@@ -1,97 +1,66 @@
-import "./movie.css";
-import { BsCalendar3 } from "react-icons/bs";
-import { AiFillStar } from "react-icons/ai";
-import { BiCameraMovie } from "react-icons/bi";
-import { HiOutlineHeart } from "react-icons/hi";
-import { useState, useContext } from "react";
-import { WatchListContext } from "./../../../context/index";
-import Modal from "../../Modal/Modal";
+import "./catalog.css";
+import { useState, useEffect } from "react";
+import Movie from "./Movie/Movie";
 
-const API_IMG = "https://image.tmdb.org/t/p/w500/";
+function Catalog() {
+  const [movies, setMovies] = useState([]);
+  const [query, setQuery] = useState("");
 
-function Movie({ movie: movieInfo }) {
-  const { addItemToWatchList, addItemToFavoriteList } = useContext(WatchListContext);
+  const API_URL =
+    "https://api.themoviedb.org/3/movie/popular?api_key=9ab709bb80f81e49d6b700d28370abd0";
 
-  const [openModal, setOpenModal] = useState(false);
-  const [movie, setMovie] = useState(movieInfo);
+  useEffect(() => {
+    fetch(API_URL)
+      .then((res) => res.json())
+      .then((data) => {
+        const catalogArray = data.results;
+        const catalogArrayTrue = catalogArray.map((element) => ({
+          ...element,
+        }));
+        setMovies(catalogArrayTrue);
+      });
+  }, []);
 
-  // const [favorite, setFavorite] = useState(false);
-  // const [watchList, setWatchList] = useState(false);
-
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [isInWatchlist, setIsInWatchlist] = useState(false);
-
-  const handleOpenModal = () => setOpenModal(!openModal);
-
-  // const addToLocalStorage = (key) => {
-  //   let array = JSON.parse(localStorage.getItem(key));
-  //   array.push(movie);
-  //   // localStorage.setItem(key, JSON.stringify(array));
-  //   key === "favorites" ? addItemToFavoriteList(...array) : addItemToWatchList(...array);
-  // };
-
-  // const removeFromLocalStorage = (key) => {
-  //   let array = JSON.parse(localStorage.getItem(key));
-  //   array = array.filter((m) => m.id !== movie.id);
-  //   // localStorage.setItem(key, JSON.stringify(array));
-  //   key === "favorites" ? addItemToFavoriteList(array) : addItemToWatchList(array);
-  // };
-
-  const handleClick = (key) => {
-    if (key === "favorites") {
-      if (isFavorite) {
-        // Maneja + or -
-        setIsFavorite(false);
-      } else {
-        // Maneja + or -
-        setIsFavorite(true);
-        movie.isfavorite = true;
-        addItemToFavoriteList(movie);
-      }
-    } else {
-      if (isInWatchlist) {
-        setIsInWatchlist(false);
-      } else {
-        setIsInWatchlist(true);
-        movie.isWatchList = true;
-        addItemToWatchList(movie);
-      }
+  const searchMovie = async (e) => {
+    e.preventDefault();
+    try {
+      const url = `https://api.themoviedb.org/3/search/movie?api_key=9ab709bb80f81e49d6b700d28370abd0&query=${query}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      setMovies(data.results);
+    } catch (e) {
+      console.log(e);
     }
   };
 
-  const { title, release_date, vote_average, poster_path } = movie;
+  const handleInput = (e) => {
+    setQuery(e.target.value);
+  };
 
   return (
-    <div className="movie">
-      <div className="collection">
-        <button onClick={() => handleClick("watchlist")}>
-          <BiCameraMovie />
-          {isInWatchlist ? <span>-</span> : <span>+</span>}
-        </button>
-        <button onClick={() => handleClick("favorites")}>
-          <HiOutlineHeart />
-          {isFavorite ? <span>-</span> : <span>+</span>}
-        </button>
-      </div>
-      <div className="data">
-        <h2>{title}</h2>
-        <div>
-          <p>
-            <BsCalendar3 />
-            {release_date}
-          </p>
-          <p>
-            <AiFillStar className="star" />
-            {vote_average}
-          </p>
+    <div className="catalog">
+      <form className="searchContainer" onSubmit={searchMovie}>
+        <input
+          type="text"
+          name="query"
+          value={query}
+          onChange={handleInput}
+          placeholder="Search movie..."
+        />
+        <button type="submit">Search</button>
+      </form>
+      {movies.length > 0 ? (
+        <div className="container">
+          <div className="grid">
+            {movies.map((movie) => (
+              <Movie key={movie.id} movie={movie} />
+            ))}
+          </div>
         </div>
-        <button className="btn" onClick={handleOpenModal}>
-          Read more...
-        </button>
-      </div>
-      <img src={API_IMG + poster_path} alt="movie cover" />
-      {openModal === true && <Modal {...movie} handleClick={handleOpenModal} />}
+      ) : (
+        <h2>Loading...</h2>
+      )}
     </div>
   );
 }
-export default Movie;
+export default Catalog;
