@@ -4,7 +4,7 @@ export const WatchListContext = createContext([]);
 
 export const ContextProvider = ({ children }) => {
   const [watchList, setWatchList] = useState(() => {
-    const localData = localStorage.getItem("watchlist");
+    const localData = localStorage.getItem("watchList");
     return localData ? JSON.parse(localData) : [];
   });
 
@@ -31,18 +31,7 @@ export const ContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const dataWatchList = JSON.parse(localStorage.getItem("watchlist"));
-    if (dataWatchList) {
-      setWatchList(dataWatchList);
-    }
-    const dataFavoriteList = JSON.parse(localStorage.getItem("favorites"));
-    if (dataFavoriteList) {
-      setFavoriteList(dataFavoriteList);
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("watchlist", JSON.stringify(watchList));
+    localStorage.setItem("watchList", JSON.stringify(watchList));
     localStorage.setItem("favorites", JSON.stringify(favoriteList));
   }, [watchList, favoriteList]);
 
