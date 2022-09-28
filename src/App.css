@@ -26,6 +26,11 @@ body {
   font-family: var(--ff-body);
 }
 
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
 h1,
 h2,
 h3 {

@@ -1,0 +1,18 @@
+.genreContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 3rem;
+  font-style: italic;
+}
+
+.genreTitle {
+  text-align: center;
+  color: white;
+  padding: 2rem;
+}
+
+.genreContent {
+  padding: 0 2rem;
+}

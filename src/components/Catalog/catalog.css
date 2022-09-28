@@ -1,8 +1,3 @@
-.container {
-  width: 100%;
-  margin: 0 auto;
-}
-
 .catalog {
   background-color: #343c48;
   padding: 0 2rem;
@@ -13,6 +8,7 @@
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  justify-items: center;
 }
 
 .catalog .searchContainer {

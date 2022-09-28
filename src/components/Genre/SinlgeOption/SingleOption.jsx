@@ -1,9 +1,13 @@
-import { FaResearchgate } from "react-icons/fa";
+import "./singleOption.css";
+import { useContext } from "react";
+import { WatchListContext } from "../../../context/index";
 
 function SingleOption({ name, genreId }) {
+  const { searchByGenre } = useContext(WatchListContext);
+
   return (
-    <div>
-      {name} <FaResearchgate />
+    <div className="singleOption" onClick={() => searchByGenre(genreId)}>
+      {name}
     </div>
   );
 }
