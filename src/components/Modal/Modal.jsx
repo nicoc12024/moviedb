@@ -35,9 +35,9 @@ function Modal({
         <div className="overview">
           <p>{overview}</p>
         </div>
-      </div>
-      <div className="closeBtn" onClick={handleClick}>
-        Close
+        <div className="closeBtn" onClick={handleClick}>
+          Close
+        </div>
       </div>
     </div>
   );
