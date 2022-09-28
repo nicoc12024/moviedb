@@ -6,7 +6,6 @@ import { HiOutlineHeart } from "react-icons/hi";
 import { useState, useContext, useEffect } from "react";
 import { WatchListContext } from "./../../../context/index";
 import Modal from "../../Modal/Modal";
-import NotificationContext from "../../../context/Notification/notification";
 
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
 
@@ -20,7 +19,10 @@ function Movie({ movie: movieInfo }) {
     favoriteList,
   } = useContext(WatchListContext);
 
-  const { setNotification } = useContext(NotificationContext);
+  const [movieActionMessage, setMovieActionMessage] = useState(() => {
+    const localData = localStorage.getItem("watchList");
+    return localData === [] ? "Remove from list" : "Add to list";
+  });
 
   const [openModal, setOpenModal] = useState(false);
   const [movie, setMovie] = useState(movieInfo);
@@ -38,21 +40,21 @@ function Movie({ movie: movieInfo }) {
   const handleWatchList = () => {
     setWatchList(!isWatchList);
     if (isWatchList) {
-      //
       removeItemFromWatchList(movie.id);
+      setMovieActionMessage("Remove from list");
     } else {
-      setNotification("Película agregada", "correcto", "movieToWatchList");
       addItemToWatchList(movie);
+      setMovieActionMessage("Add to list");
     }
   };
 
   const handleFavoriteList = () => {
     setFavorite(!isFavorite);
     if (isFavorite) {
-      //
+      setMovieActionMessage("Remove from list");
       removeItemFromFavoriteList(movie.id);
     } else {
-      setNotification("Película agregada a Favoritos", "correcto", "movieToFavorite");
+      setMovieActionMessage("Add to list");
       addItemToFavoriteList(movie);
     }
   };
@@ -63,10 +65,16 @@ function Movie({ movie: movieInfo }) {
     <div className="movie">
       <div className="collection">
         <button onClick={handleWatchList}>
+          <div className="addToWatchListHover">
+            <p>ss</p>
+          </div>
           <BiCameraMovie />
           {isWatchList ? <span>-</span> : <span>+</span>}
         </button>
         <button onClick={handleFavoriteList}>
+          <div className="addToFavoriteListHover">
+            <p>{movieActionMessage}</p>
+          </div>
           <HiOutlineHeart />
           {isFavorite ? <span>-</span> : <span>+</span>}
         </button>
