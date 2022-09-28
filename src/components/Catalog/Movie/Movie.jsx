@@ -6,6 +6,7 @@ import { HiOutlineHeart } from "react-icons/hi";
 import { useState, useContext, useEffect } from "react";
 import { WatchListContext } from "./../../../context/index";
 import Modal from "../../Modal/Modal";
+import NotificationContext from "../../../context/Notification/notification";
 
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
 
@@ -15,30 +16,43 @@ function Movie({ movie: movieInfo }) {
     removeItemFromWatchList,
     addItemToFavoriteList,
     removeItemFromFavoriteList,
+    watchList,
+    favoriteList,
   } = useContext(WatchListContext);
+
+  const { setNotification } = useContext(NotificationContext);
 
   const [openModal, setOpenModal] = useState(false);
   const [movie, setMovie] = useState(movieInfo);
 
-  const [favorite, setFavorite] = useState(false);
-  const [watchList, setWatchList] = useState(false);
+  const [isFavorite, setFavorite] = useState(false);
+  const [isWatchList, setWatchList] = useState(false);
 
   const handleOpenModal = () => setOpenModal(!openModal);
 
+  useEffect(() => {
+    setFavorite(favoriteList?.some((f) => f.id === movie.id));
+    setWatchList(watchList?.some((f) => f.id === movie.id));
+  }, [isFavorite, isWatchList]);
+
   const handleWatchList = () => {
-    setWatchList(!watchList);
-    if (watchList) {
+    setWatchList(!isWatchList);
+    if (isWatchList) {
+      //
       removeItemFromWatchList(movie.id);
     } else {
+      setNotification("Película agregada", "correcto", "movieToWatchList");
       addItemToWatchList(movie);
     }
   };
 
   const handleFavoriteList = () => {
-    setFavorite(!favorite);
-    if (favorite) {
+    setFavorite(!isFavorite);
+    if (isFavorite) {
+      //
       removeItemFromFavoriteList(movie.id);
     } else {
+      setNotification("Película agregada a Favoritos", "correcto", "movieToFavorite");
       addItemToFavoriteList(movie);
     }
   };
@@ -50,11 +64,11 @@ function Movie({ movie: movieInfo }) {
       <div className="collection">
         <button onClick={handleWatchList}>
           <BiCameraMovie />
-          {watchList ? <span>-</span> : <span>+</span>}
+          {isWatchList ? <span>-</span> : <span>+</span>}
         </button>
         <button onClick={handleFavoriteList}>
           <HiOutlineHeart />
-          {favorite ? <span>-</span> : <span>+</span>}
+          {isFavorite ? <span>-</span> : <span>+</span>}
         </button>
       </div>
       <div className="data">

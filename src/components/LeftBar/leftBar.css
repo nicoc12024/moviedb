@@ -26,6 +26,7 @@
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .leftBar .topMenu li:hover {

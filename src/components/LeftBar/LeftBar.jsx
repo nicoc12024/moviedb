@@ -3,6 +3,7 @@ import { DiReact } from "react-icons/di";
 import { AiOutlineHome } from "react-icons/ai";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsCameraReels } from "react-icons/bs";
+import { AiOutlineSearch } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 function LeftBar() {
@@ -25,6 +26,12 @@ function LeftBar() {
           <Link to="/watchlist">
             <BsCameraReels />
             <span>Watchlist</span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/searchbygenre">
+            <AiOutlineSearch />
+            <span>Search By Genre</span>
           </Link>
         </li>
       </ul>
