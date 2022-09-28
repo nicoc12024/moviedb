@@ -19,20 +19,18 @@ function Movie({ movie: movieInfo }) {
     favoriteList,
   } = useContext(WatchListContext);
 
-  const [movieActionMessage, setMovieActionMessage] = useState(() => {
-    const localData = localStorage.getItem("watchList");
-    return localData === [] ? "Remove from list" : "Add to list";
-  });
-
   const [openModal, setOpenModal] = useState(false);
   const [movie, setMovie] = useState(movieInfo);
 
   const [isFavorite, setFavorite] = useState(false);
   const [isWatchList, setWatchList] = useState(false);
 
+  const movieActionMessage = isFavorite ? "Remove from list" : "Add to list";
+
   const handleOpenModal = () => setOpenModal(!openModal);
 
   useEffect(() => {
+    console.log(isFavorite);
     setFavorite(favoriteList?.some((f) => f.id === movie.id));
     setWatchList(watchList?.some((f) => f.id === movie.id));
   }, [isFavorite, isWatchList]);
@@ -41,20 +39,16 @@ function Movie({ movie: movieInfo }) {
     setWatchList(!isWatchList);
     if (isWatchList) {
       removeItemFromWatchList(movie.id);
-      setMovieActionMessage("Remove from list");
     } else {
       addItemToWatchList(movie);
-      setMovieActionMessage("Add to list");
     }
   };
 
   const handleFavoriteList = () => {
     setFavorite(!isFavorite);
     if (isFavorite) {
-      setMovieActionMessage("Remove from list");
       removeItemFromFavoriteList(movie.id);
     } else {
-      setMovieActionMessage("Add to list");
       addItemToFavoriteList(movie);
     }
   };
