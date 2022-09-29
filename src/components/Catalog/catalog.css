@@ -7,7 +7,7 @@
   max-width: 1400px;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   justify-items: center;
 }
 
@@ -16,14 +16,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 2rem 1rem;
 }
 
 .catalog .searchContainer input {
   margin-right: 0.3rem;
   padding: 0.6rem;
   min-width: 6rem;
-  max-width: 10rem;
+  width: 100%;
+  max-width: 300px;
   outline: none;
   border-radius: 5px;
   border: none;
