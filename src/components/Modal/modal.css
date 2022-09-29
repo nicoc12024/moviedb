@@ -75,3 +75,40 @@
 .closeBtn:hover {
   background-color: #84ffda;
 }
+
+@media (min-width: 700px) {
+  .modal {
+    flex-direction: row;
+    max-width: 650px;
+    width: 100%;
+  }
+
+  .modal .info {
+    width: 100%;
+    position: relative;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+
+  .modal .img {
+    width: 600px;
+  }
+
+  .modal .img img {
+    height: 100%;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  .modal .info .overview {
+    overflow-y: auto;
+    font-size: 0.8rem;
+    height: fit-content;
+  }
+
+  .closeBtn {
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    left: 0;
+  }
+}
