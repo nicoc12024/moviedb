@@ -41,7 +41,7 @@
 }
 
 .modal .info .overview {
-  overflow-y: scroll;
+  overflow-y: auto;
   font-size: 0.8rem;
   height: 100px;
 }
