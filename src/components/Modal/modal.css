@@ -88,6 +88,25 @@
     position: relative;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
+    padding: 1rem 2rem;
+    background: none;
+  }
+
+  .modal .info .icons p {
+    color: white;
+  }
+
+  .modal .info p {
+    color: #b5b5b5;
+    font-size: 0.9rem;
+  }
+
+  .modal .info .icons svg {
+    font-size: 0.9rem;
+  }
+
+  .modal .info h2 {
+    font-size: 2.4rem;
   }
 
   .modal .img {
@@ -103,11 +122,13 @@
     overflow-y: auto;
     font-size: 0.8rem;
     height: fit-content;
+    padding-top: 0.4rem;
+    border-top: 1px #1ee4a8 solid;
   }
 
   .closeBtn {
     position: absolute;
-    bottom: 20px;
+    bottom: 1rem;
     right: 0;
     left: 0;
   }
