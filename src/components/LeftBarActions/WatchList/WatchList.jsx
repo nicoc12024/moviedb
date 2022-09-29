@@ -12,15 +12,15 @@ function WatchList() {
           <div className="grid">
             {watchList.map((movie) => (
               <SingleMovie
-               key={movie.id} 
-               item={movie} 
-               myButon={removeItemFromWatchList}
+                key={movie.id}
+                item={movie}
+                myButton={removeItemFromWatchList}
               />
             ))}
           </div>
         </div>
       ) : (
-        <h2 className="emptyComponent">No movies in here...</h2>
+        <h3 className="messageComponent">No movies in here...</h3>
       )}
     </div>
   );

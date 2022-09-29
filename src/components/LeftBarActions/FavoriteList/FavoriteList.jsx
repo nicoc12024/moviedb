@@ -13,13 +13,13 @@ function FavoriteList() {
               <SingleMovie
                 key={movie.id}
                 item={movie}
-                myButon={removeItemFromFavoriteList}
+                myButton={removeItemFromFavoriteList}
               />
             ))}
           </div>
         </div>
       ) : (
-        <h2 className="emptyComponent">No movies in here...</h2>
+        <h3 className="messageComponent">No movies in here...</h3>
       )}
     </div>
   );

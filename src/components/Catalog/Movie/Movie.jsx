@@ -31,7 +31,6 @@ function Movie({ movie: movieInfo }) {
   const handleOpenModal = () => setOpenModal(!openModal);
 
   useEffect(() => {
-    console.log(isFavorite);
     setFavorite(favoriteList?.some((f) => f.id === movie.id));
     setWatchList(watchList?.some((f) => f.id === movie.id));
   }, [isFavorite, isWatchList]);

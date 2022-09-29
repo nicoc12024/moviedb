@@ -6,7 +6,7 @@ import { useState } from "react";
 import Modal from "../../Modal/Modal";
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
 
-function SingleMovie({ item, myButon }) {
+function SingleMovie({ item, myButton }) {
   const [openModal, setOpenModal] = useState(false);
   const [movie, setMovie] = useState(item);
 
@@ -17,7 +17,7 @@ function SingleMovie({ item, myButon }) {
   return (
     <div className="movieInsideList">
       <div className="collection">
-        <button onClick={() => myButon(item.id)}>
+        <button onClick={() => myButton(item.id)}>
           <div className="removeFromList">
             <p>Remove from list</p>
           </div>

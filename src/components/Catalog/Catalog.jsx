@@ -1,10 +1,13 @@
 import "./catalog.css";
 import { useState, useEffect } from "react";
 import Movie from "./Movie/Movie";
+import Spinner from "./Spinner/Spinner";
 
 function Catalog() {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState("");
+  const [queryAbsolute, setQueryAbsolute] = useState(query);
+  const [movieNotFound, setMovieNotFound] = useState(false);
 
   const API_URL =
     "https://api.themoviedb.org/3/movie/popular?api_key=9ab709bb80f81e49d6b700d28370abd0";
@@ -19,13 +22,24 @@ function Catalog() {
 
   const searchMovie = async (e) => {
     e.preventDefault();
-    try {
-      const url = `https://api.themoviedb.org/3/search/movie?api_key=9ab709bb80f81e49d6b700d28370abd0&query=${query}`;
-      const res = await fetch(url);
-      const data = await res.json();
-      setMovies(data.results);
-    } catch (e) {
-      console.log(e);
+    if (query.length > 0) {
+      try {
+        const url = `https://api.themoviedb.org/3/search/movie?api_key=9ab709bb80f81e49d6b700d28370abd0&query=${query}`;
+        const res = await fetch(url);
+        const data = await res.json();
+        const queryAbso = query;
+        setQueryAbsolute(queryAbso);
+
+        if (data.total_results === 0) {
+          setMovieNotFound(true);
+          setMovies(data.results);
+        } else {
+          setMovieNotFound(false);
+          setMovies(data.results);
+        }
+      } catch (e) {
+        console.log(e);
+      }
     }
   };
 
@@ -53,8 +67,16 @@ function Catalog() {
             ))}
           </div>
         </div>
+      ) : movieNotFound ? (
+        <div className="notFound">
+          <p>Your search for "{queryAbsolute}" did not have any matches.</p>
+          <p>Suggestions:</p>
+          <ul>
+            <li>- Try other keywords</li>
+          </ul>
+        </div>
       ) : (
-        <h2>Loading...</h2>
+        <Spinner />
       )}
     </div>
   );
