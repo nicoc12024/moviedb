@@ -26,6 +26,7 @@ function Movie({ movie: movieInfo }) {
   const [isWatchList, setWatchList] = useState(false);
 
   const movieActionMessage = isFavorite ? "Remove from list" : "Add to list";
+  const movieActionMessage2 = isWatchList ? "Remove from list" : "Add to list";
 
   const handleOpenModal = () => setOpenModal(!openModal);
 
@@ -59,14 +60,14 @@ function Movie({ movie: movieInfo }) {
     <div className="movie">
       <div className="collection">
         <button onClick={handleWatchList}>
-          <div className="addToWatchListHover">
-            <p>ss</p>
+          <div className="addToWatchList">
+            <p>{movieActionMessage2}</p>
           </div>
           <BiCameraMovie />
           {isWatchList ? <span>-</span> : <span>+</span>}
         </button>
         <button onClick={handleFavoriteList}>
-          <div className="addToFavoriteListHover">
+          <div className="addToFavoriteList">
             <p>{movieActionMessage}</p>
           </div>
           <HiOutlineHeart />

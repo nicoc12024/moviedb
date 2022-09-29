@@ -15,9 +15,12 @@ function SingleMovie({ item, myButon }) {
   const { title, release_date, vote_average, poster_path } = item;
 
   return (
-    <div className="movieWishList">
+    <div className="movieInsideList">
       <div className="collection">
         <button onClick={() => myButon(item.id)}>
+          <div className="removeFromList">
+            <p>Remove from list</p>
+          </div>
           <TiDeleteOutline />
         </button>
       </div>

@@ -71,7 +71,6 @@
 }
 
 .movie .collection {
-  overflow: visible;
   display: flex;
   justify-content: space-between;
   position: absolute;
@@ -96,40 +95,46 @@
   border-radius: 50%;
   cursor: pointer;
   transition: all 100ms ease-in-out;
-  overflow: visible;
 }
 
-.movie .collection button .addToWatchListHover {
-  padding: 0.6rem 0.1rem;
+.movie .collection button .addToWatchList {
+  padding: 0.6rem 0.8rem;
   position: absolute;
   top: 50px;
   left: 0;
-  width: 100px;
+  width: fit-content;
   background-color: white;
   color: #2b323d;
   border-radius: 5px;
   z-index: 1;
-  opacity: 0;
+  display: none;
   transition: opacity 200ms;
 }
-.movie .collection button .addToWatchListHover p {
+
+.movie .collection button .addToWatchList p {
+  width: 100%;
   font-weight: 600;
+  white-space: nowrap;
 }
-.movie .collection button .addToFavoriteListHover {
-  padding: 0.6rem 0.1rem;
+
+.movie .collection button .addToFavoriteList {
+  padding: 0.6rem 0.8rem;
   position: absolute;
   top: 50px;
-  left: -60px;
-  width: 100px;
+  right: 0;
+  width: fit-content;
   background-color: white;
   color: #2b323d;
   border-radius: 5px;
   z-index: 1;
-  opacity: 0;
+  display: none;
   transition: opacity 200ms;
 }
-.movie .collection button .addToFavoriteListHover p {
+
+.movie .collection button .addToFavoriteList p {
   font-weight: 600;
+  white-space: nowrap;
+  width: 100%;
 }
 
 .movie .collection button span {
@@ -161,12 +166,13 @@
   background-color: #1ee4a8;
 }
 
-.movie .collection button:hover .addToWatchListHover {
-  opacity: 1;
+.movie .collection button:hover .addToWatchList {
+  display: block;
 }
-.movie .collection button:hover .addToFavoriteListHover {
-  opacity: 1;
+.movie .collection button:hover .addToFavoriteList {
+  display: block;
 }
+
 .movie .collection button:hover svg {
   color: #2b323d;
 }
