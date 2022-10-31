@@ -2,14 +2,15 @@
 
 ### About
 
-Website where you can search, explore by genre, add or remove movies from wishlist and favorite list.
+Website where you can search, explore by genre, add or remove movies from wishlist and favorite list. I use The Movie Database (TMDB) API to fetch the data.
 
-## Built with
+## Built using
 
 - HTML5
 - CSS3
 - JavaScript
-- React
+- React JS
+- The Movie Database API
 
 ## Demo
 
