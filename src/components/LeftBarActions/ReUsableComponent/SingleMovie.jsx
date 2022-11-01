@@ -4,12 +4,13 @@ import { AiFillStar } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
 import { useState } from "react";
 import Modal from "../../Modal/Modal";
-const API_IMG = "https://image.tmdb.org/t/p/w500/";
 
 function SingleMovie({ item, myButton }) {
   const [openModal, setOpenModal] = useState(false);
   const [movie, setMovie] = useState(item);
 
+  const API_IMG = "https://image.tmdb.org/t/p/w500/";
+  
   const handleOpenModal = () => setOpenModal(!openModal);
 
   const { title, release_date, vote_average, poster_path } = item;

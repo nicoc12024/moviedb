@@ -7,7 +7,6 @@ import { useState, useContext, useEffect } from "react";
 import { WatchListContext } from "./../../../context/index";
 import Modal from "../../Modal/Modal";
 
-const API_IMG = "https://image.tmdb.org/t/p/w500/";
 
 function Movie({ movie: movieInfo }) {
   const {
@@ -18,6 +17,8 @@ function Movie({ movie: movieInfo }) {
     watchList,
     favoriteList,
   } = useContext(WatchListContext);
+  
+  const API_IMG = "https://image.tmdb.org/t/p/w500/";
 
   const [openModal, setOpenModal] = useState(false);
   const [movie, setMovie] = useState(movieInfo);

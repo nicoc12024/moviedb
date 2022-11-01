@@ -1,7 +1,6 @@
 import "./modal.css";
 import { BsCalendar3 } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
-const API_IMG = "https://image.tmdb.org/t/p/w500/";
 
 function Modal({
   title,
@@ -12,6 +11,7 @@ function Modal({
   overview,
   handleClick,
 }) {
+  const API_IMG = "https://image.tmdb.org/t/p/w500/";
   return (
     <div className="modal">
       <div className="img">
